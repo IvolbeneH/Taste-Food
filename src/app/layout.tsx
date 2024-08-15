@@ -8,7 +8,7 @@ import { AuthProvider } from "./_providers/auth";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Food System",
+  title: "Taste Food",
   description: "Aplicação web feita para pedido de comidas.",
 };
 
