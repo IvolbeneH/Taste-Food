@@ -17,6 +17,7 @@ export default async function Home() {
           <Button
             className="flex h-20 min-w-[7.4rem] flex-col gap-2 bg-zinc-100 px-6 hover:bg-zinc-300"
             variant="secondary"
+            key={option.title}
           >
             <Image
               src={option.imageUrl}

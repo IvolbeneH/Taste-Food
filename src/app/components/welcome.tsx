@@ -27,7 +27,10 @@ export function Welcome() {
               <Greeting />
             </div>
             <div className="ml-auto">
-              <Button size="icon" className="relative bg-zinc-50">
+              <Button
+                size="icon"
+                className="relative bg-zinc-50 hover:bg-slate-200"
+              >
                 <ShoppingCart className="h-6 w-6 text-red-700" />
                 <span className="absolute right-0 top-0 flex h-5 w-5 items-center justify-center rounded-full bg-orange-500">
                   0
