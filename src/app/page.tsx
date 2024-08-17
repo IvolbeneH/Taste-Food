@@ -5,9 +5,13 @@ import { db } from "./lib/prisma";
 import { quickSearchOption } from "./_constants/option";
 import { Button } from "./components/ui/button";
 import { Welcome } from "./components/welcome";
-
+import { PopularFoods } from "./components/popular-foods";
 export default async function Home() {
   const restaurants = await db.restaurant.findMany({});
+
+  const services = await db.restaurantService.findMany({
+    take: 12,
+  });
   return (
     <div>
       <Header />
@@ -29,18 +33,34 @@ export default async function Home() {
           </Button>
         ))}
       </div>
-      <div className="relative mt-6 h-[200px] w-full lg:hidden">
+      <div className="relative mt-6 h-[150px] w-full lg:hidden">
         <Image
-          src="/banner.svg"
+          src="/bannerr.png"
           fill
           className="rounded-xl object-cover px-2"
           alt="Agende nos melhores com FSW Barber"
         />
       </div>
-      <h1 className="ml-3 mt-4 text-xl font-bold">Restaurantes</h1>
+      <div className="ml-3 flex items-center justify-between pt-2">
+        <h1 className="text-xl font-bold">Restaurantes</h1>
+        <Button variant="link" className="font-semibold text-red-700">
+          Ver todos
+        </Button>
+      </div>
       <div className="flex gap-4 overflow-x-auto p-2 pb-5 [&::-webkit-scrollbar]:hidden">
         {restaurants.map((restaurants) => (
           <RestaurantItem restaurant={restaurants} key={restaurants.id} />
+        ))}
+      </div>
+      <div className="ml-3 flex items-center justify-between pb-1">
+        <h1 className="text-xl font-bold">Populares</h1>
+        <Button variant="link" className="font-semibold text-red-700">
+          Ver todos
+        </Button>
+      </div>
+      <div className="flex flex-col gap-4 p-2 pb-5">
+        {services.map((services) => (
+          <PopularFoods key={services.id} service={services} />
         ))}
       </div>
     </div>

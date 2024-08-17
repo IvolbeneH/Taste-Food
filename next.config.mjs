@@ -12,6 +12,9 @@ const nextConfig = {
       "haco.com.br",
       "i0.wp.com",
       "invexo.com.br",
+      "drive.google.com",
+      "i.imgur.com",
+      "dynamic-media-cdn.tripadvisor.com",
     ],
   },
 };

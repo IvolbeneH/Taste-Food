@@ -4,7 +4,7 @@ import { Input } from "./ui/input";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import Greeting from "./greeting";
 import { Button } from "./ui/button";
-import { ShoppingCart } from "lucide-react";
+import { Search, ShoppingCart } from "lucide-react";
 
 export function Welcome() {
   const { data } = useSession();
@@ -40,10 +40,15 @@ export function Welcome() {
           </div>
         </div>
       )}
-      <Input
-        placeholder="Pesquise por comidas!"
-        className="h-12 w-[95%] rounded-lg border-zinc-300 bg-zinc-50 p-2 placeholder:text-zinc-500"
-      />
+      <div className="flex w-[95%] items-center gap-2">
+        <Input
+          placeholder="Pesquise por comidas!"
+          className="rounded-lg border-zinc-300 bg-zinc-50 placeholder:text-zinc-500"
+        />
+        <Button className="bg-red-700 text-zinc-50 hover:bg-red-800" size="sm">
+          <Search className="h-5 w-5" />
+        </Button>
+      </div>
     </div>
   );
 }

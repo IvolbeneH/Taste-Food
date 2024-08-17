@@ -1,6 +1,6 @@
-const { PrismaClient, Decimal } = require("@prisma/client")
+const { PrismaClient, Decimal } = require("@prisma/client");
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 async function seedDatabase() {
   try {
@@ -15,7 +15,7 @@ async function seedDatabase() {
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/99/d1/e7/na-av-dom-severino-1631.jpg?w=600&h=400&s=1",
       "https://offloadmedia.feverup.com/saopaulosecreto.com/wp-content/uploads/2023/04/13084536/vicolonostro_297954300_423828246379752_1991947989042728349_n-1024x682.jpg",
       "https://s2-glamour.glbimg.com/gSTfs5JR-pQN-M0ljWhycFCV5CM=/0x0:607x320/600x0/smart/filters:gifv():strip_icc()/i.s3.glbimg.com/v1/AUTH_ba3db981e6d14e54bb84be31c923b00c/internal_photos/bs/2021/o/Y/CKpiMxR4uBbreMJElziQ/2012-08-14-le-jazz.jpg",
-    ]
+    ];
 
     const creativeNames = [
       "Ryori Restaurant",
@@ -28,7 +28,7 @@ async function seedDatabase() {
       "Fusion Gourmet",
       "Prato e Comida",
       "Le jazz",
-    ]
+    ];
 
     const addresses = [
       "Rua Ryori, 123",
@@ -41,52 +41,54 @@ async function seedDatabase() {
       "Praça da Aparência, 505",
       "Urbana Saraiva, 606",
       "Avenida Clássica, 707",
-    ]
+    ];
 
     const services = [
       {
         name: "Salada Ravanello",
-        description: "Rabanetes, folhas verdes e molho agridoce salpicados com gergelin",
+        description:
+          "Rabanetes, folhas verdes e molho agridoce salpicados com gergelin",
         price: new Decimal(59.97),
-        imageUrl: "https://drive.google.com/file/d/1hhTO1hIEMLorMqkR3tWn3Cq9sw5ymYAm/view",
+        imageUrl: "https://i.imgur.com/3BdZck8.png",
       },
-      { 
+      {
         name: "Torradas De Parma",
-        description: "Presuntos de parma e rúcula em um pão com fermetação natural",
+        description:
+          "Presuntos de parma e rúcula em um pão com fermetação natural",
         price: new Decimal(26.57),
-        imageUrl: "https://drive.google.com/file/d/1RV--VDaX5zDglDcibLTAqvwZcM8Et0Ow/view",
+        imageUrl: "https://i.imgur.com/jBUyJXg.png",
       },
       {
         name: "Spaguetti Gambe",
         description: "Massa fresca com camarões e pesto.",
         price: new Decimal(79.87),
-        imageUrl: "https://drive.google.com/file/d/1IRZN6ZU4U_E3IU9T49HVYfLxwXafdK3d/view",
+        imageUrl: "https://i.imgur.com/Hj7R5pd.png",
       },
       {
         name: "Macarons",
         description: "Farinha de amêndoas, manteiga, claras e açúcar.",
         price: new Decimal(79.97),
-        imageUrl: "https://drive.google.com/file/d/1HOOu_AkkpwOCiP145XCAT0UrPkqfeguG/view",
+        imageUrl: "https://i.imgur.com/JqTS8nZ.png",
       },
       {
         name: "Peachy pastrie",
         description: "Delicioso folheado de pêssego com folhas de hortelã.",
         price: new Decimal(50.0),
-        imageUrl: "https://drive.google.com/file/d/1JjsMkRemrDk5Sy6Kv1CK2kjErKWhDB8z/view",
+        imageUrl: "https://i.imgur.com/27nAz1N.png",
       },
       {
-        name: "Suco",
+        name: "Suco de maracujá",
         description: "Suco de maracujá gelado, cremoso, docinho.",
         price: new Decimal(13.97),
-        imageUrl: "https://drive.google.com/file/d/1AZGXjXnTcXmeBJPwZEZBJzhA87fYDMxa/view",
+        imageUrl: "https://i.imgur.com/W0lmybQ.png",
       },
-    ]
+    ];
 
-    const Restaurants = []
+    const Restaurants = [];
     for (let i = 0; i < 10; i++) {
-      const name = creativeNames[i]
-      const address = addresses[i]
-      const imageUrl = images[i]
+      const name = creativeNames[i];
+      const address = addresses[i];
+      const imageUrl = images[i];
 
       const restaurant = await prisma.restaurant.create({
         data: {
@@ -97,7 +99,7 @@ async function seedDatabase() {
           description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac augue ullamcorper, pharetra orci mollis, auctor tellus. Phasellus pharetra erat ac libero efficitur tempus. Donec pretium convallis iaculis. Etiam eu felis sollicitudin, cursus mi vitae, iaculis magna. Nam non erat neque. In hac habitasse platea dictumst. Pellentesque molestie accumsan tellus id laoreet.",
         },
-      })
+      });
 
       for (const service of services) {
         await prisma.restaurantService.create({
@@ -112,16 +114,16 @@ async function seedDatabase() {
             },
             imageUrl: service.imageUrl,
           },
-        })
+        });
       }
 
-      Restaurants.push(restaurant)
+      Restaurants.push(restaurant);
     }
 
-    await prisma.$disconnect()
+    await prisma.$disconnect();
   } catch (error) {
-    console.error("Erro ao criar os restaurantes:", error)
+    console.error("Erro ao criar os restaurantes:", error);
   }
 }
 
-seedDatabase()
+seedDatabase();

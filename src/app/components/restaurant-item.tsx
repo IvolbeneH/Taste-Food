@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Badge } from "./ui/badge";
 import { StarIcon } from "lucide-react";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 interface RestaurantItemProps {
   restaurant: Restaurant;
@@ -32,12 +33,14 @@ export function RestaurantItem({ restaurant }: RestaurantItemProps) {
             <p className="truncate text-sm text-gray-400">
               {restaurant.address}
             </p>
-            <Button
-              variant="secondary"
-              className="mt-3 w-full bg-red-700 text-zinc-50 hover:bg-red-800"
-            >
-              Acessar
-            </Button>
+            <Link href={`/restaurant/${restaurant.id}`}>
+              <Button
+                variant="secondary"
+                className="mt-3 w-full bg-red-700 text-zinc-50 hover:bg-red-800"
+              >
+                Acessar
+              </Button>
+            </Link>
           </div>
         </CardContent>
       </Card>
