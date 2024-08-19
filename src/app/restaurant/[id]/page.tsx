@@ -1,8 +1,9 @@
-import { SheetRepeat } from "@/app/components/sheet-repeat";
+import { Favorited } from "@/app/components/favorited";
+import { PopularFoods } from "@/app/components/popular-foods";
 import { Button } from "@/app/components/ui/button";
-import { Sheet, SheetTrigger } from "@/app/components/ui/sheet";
+import { Card, CardContent } from "@/app/components/ui/card";
 import { db } from "@/app/lib/prisma";
-import { AlignRight, ChevronLeft } from "lucide-react";
+import { ChevronLeft, Heart, Truck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -37,22 +38,42 @@ export default async function RestaurantPage({ params }: RestaurantPageProps) {
         <Link href="/">
           <Button
             size="icon"
-            className="absolute left-4 top-4 rounded-full bg-red-700 hover:bg-red-800"
+            className="absolute left-4 top-4 rounded-full bg-zinc-700 hover:bg-red-700"
           >
             <ChevronLeft className="h-6 w-6 text-zinc-50" />
           </Button>
         </Link>
-        <Sheet>
-          <SheetTrigger
-            asChild
-            className="absolute right-4 top-4 rounded-3xl bg-red-700 hover:bg-red-800"
-          >
-            <Button size="icon" variant="ghost" className="hover:bg-zinc-200">
-              <AlignRight className="h-6 w-6 text-zinc-50" />
-            </Button>
-          </SheetTrigger>
-          <SheetRepeat />
-        </Sheet>
+        <Favorited />
+      </div>
+      <div className="p-2">
+        <h1 className="p-1 text-lg font-semibold">Sobre</h1>
+        <Card className="mt-2">
+          <CardContent className="flex h-28 w-full items-center gap-4 p-0">
+            <Image
+              src={restaurant.imageUrl}
+              alt="Logo restaurante"
+              width={120}
+              height={120}
+              className="ml-3 rounded-2xl object-cover"
+            />
+            <div className="flex w-48 flex-col gap-2 truncate">
+              <h1 className="font-semibold">{restaurant.name}</h1>
+              <span className="flex-wrap text-sm text-zinc-500">
+                {restaurant.address}
+              </span>
+              <span className="flex items-center gap-1 text-sm font-medium">
+                <Truck className="h-5 w-5 text-red-700" />
+                Entregas grátis até 2km!
+              </span>
+            </div>
+          </CardContent>
+        </Card>
+        <h1 className="mt-2 p-1 text-lg font-semibold">Pratos</h1>
+        <div className="flex flex-col gap-2">
+          {restaurant.services.map((service) => (
+            <PopularFoods service={service} key={service.id} />
+          ))}
+        </div>
       </div>
     </div>
   );

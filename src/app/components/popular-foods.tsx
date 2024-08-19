@@ -4,6 +4,8 @@ import { RestaurantService } from "@prisma/client";
 import { Badge } from "./ui/badge";
 import { StarIcon } from "lucide-react";
 import { db } from "../lib/prisma";
+import { Favorited } from "./favorited";
+import { AddToCart } from "./add-to-cart";
 interface PopularFoodsProps {
   service: RestaurantService;
 }
@@ -18,19 +20,25 @@ export async function PopularFoods({ service }: PopularFoodsProps) {
   return (
     <Card>
       <CardContent className="flex h-32 w-full p-0">
-        <div className="relative ml-4 flex items-center">
-          <div className="flex flex-col gap-2">
-            <Image
-              src={service.imageUrl}
-              alt={service.name}
-              width={102}
-              height={102}
-            />
-            <Badge className="absolute left-[-6px] top-3 flex gap-1 bg-[#3d1c1cb2] bg-opacity-70 px-2 hover:bg-violet-400 hover:bg-opacity-50">
-              <StarIcon className="fill-red-700 text-red-700" size={14} />
-              <span className="font-normal">5,0</span>
-            </Badge>
-          </div>
+        <div className="ml-4 flex min-h-[102px] min-w-[102px] items-center">
+          <Image
+            src={service.imageUrl}
+            alt={service.name}
+            width={102}
+            height={102}
+          />
+        </div>
+        <div className="ml-2 flex w-48 flex-col gap-1 p-2">
+          <h2 className="font-semibold">{service.name}</h2>
+          <p className="max-h-16 text-sm text-zinc-600">
+            {service.description}
+          </p>
+          <span className="font-bold text-red-700">
+            R$ {Number(service.price)}
+          </span>
+        </div>
+        <div className="mb-2 ml-4 mt-auto">
+          <AddToCart />
         </div>
       </CardContent>
     </Card>
