@@ -1,5 +1,5 @@
 "use client";
-import { Home, LogIn, ShoppingCart } from "lucide-react";
+import { Home, LogIn, Star } from "lucide-react";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import {
@@ -96,7 +96,7 @@ export function SheetRepeat() {
         <div>
           <Link href="/">
             <Button className="flex w-full items-center justify-start gap-2 bg-slate-100 text-zinc-950 hover:bg-slate-200">
-              <Home className="h-6 w-6 text-red-700" />
+              <Home className="h-5 w-5 text-red-700" />
               <span className="text-base font-semibold">Início</span>
             </Button>
           </Link>
@@ -104,11 +104,8 @@ export function SheetRepeat() {
         <div>
           <Link href="/">
             <Button className="flex w-full items-center justify-start gap-2 bg-slate-100 text-zinc-950 hover:bg-slate-200">
-              <ShoppingCart className="h-6 w-6 text-red-700" />
-              <span className="text-base font-semibold">Carrinho</span>
-              <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-red-700 text-zinc-50">
-                0
-              </span>
+              <Star className="h-5 w-5 fill-current text-red-700" />
+              <span className="text-base font-semibold">Favoritos</span>
             </Button>
           </Link>
         </div>

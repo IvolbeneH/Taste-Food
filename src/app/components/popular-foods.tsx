@@ -1,25 +1,15 @@
 import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
 import { RestaurantService } from "@prisma/client";
-import { Badge } from "./ui/badge";
-import { StarIcon } from "lucide-react";
-import { db } from "../lib/prisma";
-import { Favorited } from "./favorited";
 import { AddToCart } from "./add-to-cart";
 interface PopularFoodsProps {
   service: RestaurantService;
 }
 
 export async function PopularFoods({ service }: PopularFoodsProps) {
-  const services = await db.restaurant.findMany({
-    include: {
-      services: true,
-    },
-  });
-
   return (
     <Card>
-      <CardContent className="flex h-32 w-full p-0">
+      <CardContent className="flex h-32 w-full items-center p-0">
         <div className="ml-4 flex min-h-[102px] min-w-[102px] items-center">
           <Image
             src={service.imageUrl}
