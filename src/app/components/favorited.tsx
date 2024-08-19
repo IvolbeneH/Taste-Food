@@ -1,12 +1,19 @@
 "use client";
 import { Heart } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export function Favorited() {
   const [isFavorited, setIsFavorited] = useState(false);
 
   const handleClick = () => {
     setIsFavorited(!isFavorited);
+
+    if (isFavorited === false) {
+      toast.success("Restaurante colocado nos favoritos!");
+    } else {
+      return toast.error("Restaurante removido dos favoritos!");
+    }
   };
   return (
     <button

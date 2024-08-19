@@ -6,11 +6,13 @@ import { quickSearchOption } from "./_constants/option";
 import { Button } from "./components/ui/button";
 import { Welcome } from "./components/welcome";
 import { PopularFoods } from "./components/popular-foods";
+
 export default async function Home() {
   const restaurants = await db.restaurant.findMany({});
 
   const services = await db.restaurantService.findMany({
     take: 12,
+    distinct: ["name", "imageUrl"],
   });
   return (
     <div>

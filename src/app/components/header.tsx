@@ -1,26 +1,8 @@
 "use client";
 
-import { AlignRight, Home, LogIn, ShoppingCart, Truck } from "lucide-react";
+import { AlignRight, Truck } from "lucide-react";
 import { Button } from "./ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "./ui/sheet";
-import { SearchType } from "./search-type";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "./ui/dialog";
-import Image from "next/image";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { Avatar, AvatarImage } from "./ui/avatar";
+import { Sheet, SheetTrigger } from "./ui/sheet";
 import Link from "next/link";
 import { SheetRepeat } from "./sheet-repeat";
 

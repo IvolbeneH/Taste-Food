@@ -1,11 +1,10 @@
 import { Favorited } from "@/app/components/favorited";
 import { PopularFoods } from "@/app/components/popular-foods";
-import { Button } from "@/app/components/ui/button";
+import { ReturnButton } from "@/app/components/return-button";
 import { Card, CardContent } from "@/app/components/ui/card";
 import { db } from "@/app/lib/prisma";
-import { ChevronLeft, Truck } from "lucide-react";
+import { Truck } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface RestaurantPageProps {
@@ -23,9 +22,11 @@ export default async function RestaurantPage({ params }: RestaurantPageProps) {
       services: true,
     },
   });
+
   if (!restaurant) {
     return notFound();
   }
+
   return (
     <div>
       <div className="relative h-64">
@@ -35,14 +36,7 @@ export default async function RestaurantPage({ params }: RestaurantPageProps) {
           fill
           className="object-cover"
         />
-        <Link href="/">
-          <Button
-            size="icon"
-            className="absolute left-4 top-4 rounded-full bg-zinc-700 hover:bg-red-600"
-          >
-            <ChevronLeft className="h-6 w-6 text-zinc-50" />
-          </Button>
-        </Link>
+        <ReturnButton />
         <Favorited />
       </div>
       <div className="p-2">

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
 import { RestaurantService } from "@prisma/client";
 import { AddToCart } from "./add-to-cart";
+
 interface PopularFoodsProps {
   service: RestaurantService;
 }
