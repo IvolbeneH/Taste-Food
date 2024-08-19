@@ -3,7 +3,7 @@ import { PopularFoods } from "@/app/components/popular-foods";
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent } from "@/app/components/ui/card";
 import { db } from "@/app/lib/prisma";
-import { ChevronLeft, Heart, Truck } from "lucide-react";
+import { ChevronLeft, Truck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -38,7 +38,7 @@ export default async function RestaurantPage({ params }: RestaurantPageProps) {
         <Link href="/">
           <Button
             size="icon"
-            className="absolute left-4 top-4 rounded-full bg-zinc-700 hover:bg-red-700"
+            className="absolute left-4 top-4 rounded-full bg-zinc-700 hover:bg-red-600"
           >
             <ChevronLeft className="h-6 w-6 text-zinc-50" />
           </Button>
@@ -62,7 +62,7 @@ export default async function RestaurantPage({ params }: RestaurantPageProps) {
                 {restaurant.address}
               </span>
               <span className="flex items-center gap-1 text-sm font-medium">
-                <Truck className="h-5 w-5 text-red-700" />
+                <Truck className="h-5 w-5 text-red-600" />
                 Entregas grátis até 2km!
               </span>
             </div>

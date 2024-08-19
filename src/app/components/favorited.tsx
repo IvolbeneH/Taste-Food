@@ -12,7 +12,7 @@ export function Favorited() {
     <button
       className={`absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full transition-colors ${
         isFavorited
-          ? "bg-red-700 text-zinc-50"
+          ? "bg-red-600 text-zinc-50"
           : "hover: bg-zinc-700 text-zinc-300"
       }`}
       onClick={handleClick}

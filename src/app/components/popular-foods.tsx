@@ -23,7 +23,7 @@ export async function PopularFoods({ service }: PopularFoodsProps) {
           <p className="max-h-16 text-sm text-zinc-600">
             {service.description}
           </p>
-          <span className="font-bold text-red-700">
+          <span className="font-bold text-red-600">
             R$ {Number(service.price)}
           </span>
         </div>

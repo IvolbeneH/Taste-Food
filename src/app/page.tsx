@@ -43,7 +43,7 @@ export default async function Home() {
       </div>
       <div className="ml-3 flex items-center justify-between pt-2">
         <h1 className="text-xl font-bold">Restaurantes</h1>
-        <Button variant="link" className="font-semibold text-red-700">
+        <Button variant="link" className="font-semibold text-red-600">
           Ver todos
         </Button>
       </div>
@@ -54,7 +54,7 @@ export default async function Home() {
       </div>
       <div className="ml-3 flex items-center justify-between pb-1">
         <h1 className="text-xl font-bold">Populares</h1>
-        <Button variant="link" className="font-semibold text-red-700">
+        <Button variant="link" className="font-semibold text-red-600">
           Ver todos
         </Button>
       </div>

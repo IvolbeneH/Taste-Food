@@ -44,7 +44,7 @@ export function SheetRepeat() {
             </p>
           </div>
           <Button
-            className="ml-auto bg-red-700"
+            className="ml-auto bg-red-600"
             size="sm"
             onClick={handleLogout}
           >
@@ -96,7 +96,7 @@ export function SheetRepeat() {
         <div>
           <Link href="/">
             <Button className="flex w-full items-center justify-start gap-2 bg-slate-100 text-zinc-950 hover:bg-slate-200">
-              <Home className="h-5 w-5 text-red-700" />
+              <Home className="h-5 w-5 text-red-600" />
               <span className="text-base font-semibold">Início</span>
             </Button>
           </Link>
@@ -104,7 +104,7 @@ export function SheetRepeat() {
         <div>
           <Link href="/">
             <Button className="flex w-full items-center justify-start gap-2 bg-slate-100 text-zinc-950 hover:bg-slate-200">
-              <Star className="h-5 w-5 fill-current text-red-700" />
+              <Star className="h-5 w-5 fill-current text-red-600" />
               <span className="text-base font-semibold">Favoritos</span>
             </Button>
           </Link>
