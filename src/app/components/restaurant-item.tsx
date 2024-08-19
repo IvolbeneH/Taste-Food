@@ -24,7 +24,7 @@ export function RestaurantItem({ restaurant }: RestaurantItemProps) {
               alt={restaurant.name}
             />
             <Badge className="absolute left-2 top-2 flex gap-1 bg-[#3d1c1cb2] bg-opacity-70 px-2 hover:bg-violet-400 hover:bg-opacity-50">
-              <StarIcon className="fill-red-700 text-red-700" size={14} />
+              <StarIcon className="fill-red-600 text-red-600" size={14} />
               <span className="font-normal">5,0</span>
             </Badge>
           </div>
@@ -36,7 +36,7 @@ export function RestaurantItem({ restaurant }: RestaurantItemProps) {
             <Link href={`/restaurant/${restaurant.id}`}>
               <Button
                 variant="secondary"
-                className="mt-3 w-full bg-red-700 text-zinc-50 hover:bg-red-800"
+                className="mt-3 w-full bg-red-600 text-zinc-50 hover:bg-red-700"
               >
                 Acessar
               </Button>
