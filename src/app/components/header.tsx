@@ -29,8 +29,8 @@ export function Header() {
     <header className="flex w-full justify-between bg-zinc-50 p-6 shadow-md">
       <Link href="/" className="mt-2">
         <div className="flex items-center gap-2">
-          <Truck className="h-7 w-7 text-red-700" />
-          <h1 className="text-lg font-bold text-red-700">Taste Food</h1>
+          <Truck className="h-7 w-7 text-red-600" />
+          <h1 className="text-lg font-bold text-red-600">Taste Food</h1>
         </div>
       </Link>
       <Sheet>
