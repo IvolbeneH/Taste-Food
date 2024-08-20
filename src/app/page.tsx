@@ -6,8 +6,14 @@ import { quickSearchOption } from "./_constants/option";
 import { Button } from "./components/ui/button";
 import { Welcome } from "./components/welcome";
 import { PopularFoods } from "./components/popular-foods";
+import Link from "next/link";
+import { Restaurant } from "@prisma/client";
 
-export default async function Home() {
+interface Props {
+  restaurant: Restaurant;
+}
+
+export default async function Home({ restaurant }: Props) {
   const restaurants = await db.restaurant.findMany({});
 
   const services = await db.restaurantService.findMany({
@@ -20,19 +26,21 @@ export default async function Home() {
       <Welcome />
       <div className="mt-2 flex w-full items-center gap-2 overflow-x-scroll px-3 pt-2 lg:hidden [&::-webkit-scrollbar]:hidden">
         {quickSearchOption.map((option) => (
-          <Button
-            className="flex h-20 min-w-[7.4rem] flex-col gap-2 bg-zinc-100 px-6 hover:bg-zinc-300"
-            variant="secondary"
-            key={option.title}
-          >
-            <Image
-              src={option.imageUrl}
-              alt={option.title}
-              width={34}
-              height={34}
-            />
-            <span className="font-semibold">{option.title}</span>
-          </Button>
+          <Link href={`/restaurant?search=${option.title}`}>
+            <Button
+              className="flex h-20 min-w-[7.4rem] flex-col gap-2 bg-zinc-100 px-6 hover:bg-zinc-300"
+              variant="secondary"
+              key={option.title}
+            >
+              <Image
+                src={option.imageUrl}
+                alt={option.title}
+                width={34}
+                height={34}
+              />
+              <span className="font-semibold">{option.title}</span>
+            </Button>
+          </Link>
         ))}
       </div>
       <div className="relative mt-6 h-[150px] w-full lg:hidden">
@@ -62,7 +70,11 @@ export default async function Home() {
       </div>
       <div className="flex flex-col gap-4 p-2 pb-5">
         {services.map((services) => (
-          <PopularFoods key={services.id} service={services} />
+          <PopularFoods
+            key={services.id}
+            service={services}
+            restaurant={restaurant}
+          />
         ))}
       </div>
     </div>

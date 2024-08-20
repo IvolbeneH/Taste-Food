@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
-import { RestaurantService } from "@prisma/client";
+import { Restaurant, RestaurantService } from "@prisma/client";
 import { AddToCart } from "./add-to-cart";
 
 interface PopularFoodsProps {
   service: RestaurantService;
+  restaurant: Restaurant;
 }
 
-export async function PopularFoods({ service }: PopularFoodsProps) {
+export async function PopularFoods({ service, restaurant }: PopularFoodsProps) {
   return (
     <Card>
       <CardContent className="flex h-32 w-full items-center p-0">
@@ -19,17 +20,17 @@ export async function PopularFoods({ service }: PopularFoodsProps) {
             height={102}
           />
         </div>
-        <div className="ml-2 flex w-48 flex-col gap-1 p-2">
+        <div className="ml-2 flex w-40 flex-col gap-1">
           <h2 className="font-semibold">{service.name}</h2>
-          <p className="max-h-16 text-sm text-zinc-600">
+          <p className="max-h-16 text-xs text-zinc-600">
             {service.description}
           </p>
-          <span className="font-bold text-red-600">
-            R$ {Number(service.price)}
+          <span className="text-sm font-bold text-red-600">
+            R$ {Number(service.price).toFixed(2).replace(".", ",")}
           </span>
         </div>
-        <div className="mb-2 ml-4 mt-auto">
-          <AddToCart />
+        <div className="mb-2 mt-auto">
+          <AddToCart restaurant={restaurant} service={service} />
         </div>
       </CardContent>
     </Card>

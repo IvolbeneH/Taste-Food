@@ -37,7 +37,7 @@ export default async function RestaurantPage({ params }: RestaurantPageProps) {
           className="object-cover"
         />
         <ReturnButton />
-        <Favorited />
+        <Favorited restaurant={restaurant} />
       </div>
       <div className="p-2">
         <h1 className="p-1 text-lg font-semibold">Sobre</h1>
@@ -65,7 +65,11 @@ export default async function RestaurantPage({ params }: RestaurantPageProps) {
         <h1 className="mt-2 p-1 text-lg font-semibold">Pratos</h1>
         <div className="flex flex-col gap-2">
           {restaurant.services.map((service) => (
-            <PopularFoods service={service} key={service.id} />
+            <PopularFoods
+              service={service}
+              key={service.id}
+              restaurant={restaurant}
+            />
           ))}
         </div>
       </div>

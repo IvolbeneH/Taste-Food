@@ -1,10 +1,28 @@
 "use client";
+import { Restaurant } from "@prisma/client";
 import { Heart } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-export function Favorited() {
-  const [isFavorited, setIsFavorited] = useState(false);
+interface FavoritedProps {
+  restaurant: Restaurant;
+}
+
+export function Favorited({ restaurant }: FavoritedProps) {
+  const [isFavorited, setIsFavorited] = useState<boolean>(() => {
+    const savedFavorite = localStorage.getItem(`isFavorited-${restaurant.id}`);
+
+    return savedFavorite
+      ? JSON.parse(savedFavorite)
+      : localStorage.removeItem(`isFavorited-${restaurant.id}`);
+  });
+
+  useEffect(() => {
+    localStorage.setItem(
+      `isFavorited-${restaurant.id}`,
+      JSON.stringify(isFavorited),
+    );
+  }, [isFavorited, restaurant.id]);
 
   const handleClick = () => {
     setIsFavorited(!isFavorited);

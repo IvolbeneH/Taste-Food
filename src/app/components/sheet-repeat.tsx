@@ -102,7 +102,7 @@ export function SheetRepeat() {
           </Link>
         </div>
         <div>
-          <Link href="/">
+          <Link href="/favorites">
             <Button className="flex w-full items-center justify-start gap-2 bg-slate-100 text-zinc-950 hover:bg-slate-200">
               <Star className="h-5 w-5 fill-current text-red-600" />
               <span className="text-base font-semibold">Favoritos</span>
@@ -113,7 +113,7 @@ export function SheetRepeat() {
       <div className="flex flex-col gap-3 border-b pb-4">
         <SearchType title="Fast Food" src="Hamburger.svg" />
         <SearchType title="Pizza" src="Pizza.svg" />
-        <SearchType title="Comida Oriental" src="Sushi.svg" />
+        <SearchType title="Oriental" src="Sushi.svg" />
         <SearchType title="Frutos do mar" src="Scorpion.svg" />
       </div>
     </SheetContent>
