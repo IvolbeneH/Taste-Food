@@ -30,7 +30,11 @@ export async function PopularFoods({ service, restaurant }: PopularFoodsProps) {
           </span>
         </div>
         <div className="mb-2 mt-auto">
-          <AddToCart restaurant={restaurant} service={service} />
+          <AddToCart
+            restaurant={restaurant}
+            service={service}
+            key={service.id}
+          />
         </div>
       </CardContent>
     </Card>

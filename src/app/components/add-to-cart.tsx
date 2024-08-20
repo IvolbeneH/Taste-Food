@@ -53,7 +53,7 @@ export function AddToCart({ restaurant, service }: AddToCartProps) {
           <div>
             <span className="font-semibold">Colocar no carrinho.</span>
           </div>
-          <AddQuantityFood />
+          <AddQuantityFood key={service.id} />
         </div>
       </DialogContent>
     </Dialog>
