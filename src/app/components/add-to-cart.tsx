@@ -1,6 +1,5 @@
 "use client";
-import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
-import { useState } from "react";
+import { ShoppingCart } from "lucide-react";
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 import { Restaurant, RestaurantService } from "@prisma/client";
@@ -12,7 +11,7 @@ interface AddToCartProps {
   service: RestaurantService;
 }
 
-export function AddToCart({ restaurant, service }: AddToCartProps) {
+export function AddToCart({ service }: AddToCartProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -49,7 +48,7 @@ export function AddToCart({ restaurant, service }: AddToCartProps) {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-center gap-2">
           <div>
             <span className="font-semibold">Colocar no carrinho.</span>
           </div>

@@ -10,7 +10,7 @@ interface PopularFoodsProps {
 
 export async function PopularFoods({ service, restaurant }: PopularFoodsProps) {
   return (
-    <Card>
+    <Card className="md:w-96">
       <CardContent className="flex h-32 w-full items-center p-0">
         <div className="ml-4 flex min-h-[102px] min-w-[102px] items-center">
           <Image
@@ -29,7 +29,7 @@ export async function PopularFoods({ service, restaurant }: PopularFoodsProps) {
             R$ {Number(service.price).toFixed(2).replace(".", ",")}
           </span>
         </div>
-        <div className="mb-2 mt-auto">
+        <div className="mb-2 mt-auto md:mr-2">
           <AddToCart
             restaurant={restaurant}
             service={service}

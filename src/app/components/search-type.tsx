@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 
 interface SearchTypeProps {
-  title: string;
+  title?: string;
   src: string;
   className?: string;
 }

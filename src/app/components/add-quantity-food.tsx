@@ -9,7 +9,7 @@ export function AddQuantityFood() {
     setIsAdded(!isAdded);
   };
 
-  const [quantity, setQuantity] = useState(1); // Inicializa a quantidade com 1
+  const [quantity, setQuantity] = useState(1);
 
   const increment = () => {
     if (quantity < 9) {

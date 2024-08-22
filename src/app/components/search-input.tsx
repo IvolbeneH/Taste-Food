@@ -32,16 +32,16 @@ export function SearchInput() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
-        className="flex w-full gap-2 px-3"
+        className="flex w-full items-center justify-center gap-2 px-3 lg:w-2/4"
       >
         <FormField
           control={form.control}
           name="search"
           render={({ field }) => (
-            <FormItem className="w-full">
+            <FormItem className="w-full lg:w-2/4">
               <FormControl>
                 <Input
-                  placeholder="Faça sua busca..."
+                  placeholder="Busque por uma loja."
                   {...field}
                   className="w-full"
                 />

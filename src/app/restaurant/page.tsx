@@ -23,10 +23,10 @@ export default async function RestaurantPage({
     <div>
       <Header />
       <div>
-        <div className="mt-4">
+        <div className="mt-4 md:hidden">
           <SearchInput />
         </div>
-        <h2 className="mb-3 mt-6 px-3 text-xs font-bold uppercase text-gray-400">
+        <h2 className="mb-3 mt-6 px-3 text-xs font-bold uppercase text-zinc-500 md:text-sm">
           Resultados para &quot;{searchParams?.search}&quot;
         </h2>
         <div className="grid grid-cols-2 gap-4 px-3">

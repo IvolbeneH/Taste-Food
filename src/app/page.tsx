@@ -24,7 +24,7 @@ export default async function Home({ restaurant }: Props) {
     <div>
       <Header />
       <Welcome />
-      <div className="mt-2 flex w-full items-center gap-2 overflow-x-scroll px-3 pt-2 lg:hidden [&::-webkit-scrollbar]:hidden">
+      <div className="mt-2 flex w-full items-center gap-2 overflow-x-scroll px-3 pt-2 md:hidden lg:hidden [&::-webkit-scrollbar]:hidden">
         {quickSearchOption.map((option) => (
           <Link href={`/restaurant?search=${option.title}`}>
             <Button
@@ -57,18 +57,18 @@ export default async function Home({ restaurant }: Props) {
           Ver todos
         </Button>
       </div>
-      <div className="flex gap-4 overflow-x-auto p-2 pb-5 [&::-webkit-scrollbar]:hidden">
+      <div className="flex gap-4 overflow-x-auto px-2 [&::-webkit-scrollbar]:hidden">
         {restaurants.map((restaurants) => (
           <RestaurantItem restaurant={restaurants} key={restaurants.id} />
         ))}
       </div>
-      <div className="ml-3 flex items-center justify-between pb-1">
+      <div className="ml-3 mt-2 flex items-center justify-between pb-1">
         <h1 className="text-xl font-bold">Populares</h1>
         <Button variant="link" className="font-semibold text-red-600">
           Ver todos
         </Button>
       </div>
-      <div className="flex flex-col gap-4 p-2 pb-5">
+      <div className="flex flex-col gap-4 p-2 pb-5 md:flex-row md:overflow-x-auto md:[&::-webkit-scrollbar]:hidden">
         {services.map((services) => (
           <PopularFoods
             key={services.id}

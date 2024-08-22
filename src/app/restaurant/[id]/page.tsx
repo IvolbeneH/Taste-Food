@@ -29,7 +29,7 @@ export default async function RestaurantPage({ params }: RestaurantPageProps) {
 
   return (
     <div>
-      <div className="relative h-64">
+      <div className="relative h-64 md:h-80">
         <Image
           src={restaurant.imageUrl}
           alt="Foto do restaurante"
@@ -63,7 +63,7 @@ export default async function RestaurantPage({ params }: RestaurantPageProps) {
           </CardContent>
         </Card>
         <h1 className="mt-2 p-1 text-lg font-semibold">Pratos</h1>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 md:flex-row">
           {restaurant.services.map((service) => (
             <PopularFoods
               service={service}

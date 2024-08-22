@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import { Footer } from "./components/footer";
 import { AuthProvider } from "./_providers/auth";
+import { ThemeProvider } from "./components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,13 +21,15 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
-        <AuthProvider>
-          <div className="flex h-full flex-col">
-            <div className="flex-1">{children}</div>
-            <Footer />
-          </div>
-          <Toaster richColors />
-        </AuthProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <AuthProvider>
+            <div className="flex h-full flex-col">
+              <div className="flex-1">{children}</div>
+              <Footer />
+            </div>
+            <Toaster richColors />
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
