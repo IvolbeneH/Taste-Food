@@ -26,7 +26,7 @@ export default async function Home({ restaurant }: Props) {
       <Welcome />
       <div className="mt-2 flex w-full items-center gap-2 overflow-x-scroll px-3 pt-2 md:hidden lg:hidden [&::-webkit-scrollbar]:hidden">
         {quickSearchOption.map((option) => (
-          <Link href={`/restaurant?search=${option.title}`}>
+          <Link href={`/restaurant?search=${option.title}`} key={option.title}>
             <Button
               className="flex h-20 min-w-[7.4rem] flex-col gap-2 bg-zinc-100 px-6 hover:bg-zinc-300"
               variant="secondary"
