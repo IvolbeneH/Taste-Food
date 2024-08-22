@@ -5,21 +5,12 @@ import { db } from "./lib/prisma";
 import { quickSearchOption } from "./_constants/option";
 import { Button } from "./components/ui/button";
 import { Welcome } from "./components/welcome";
-import { PopularFoods } from "./components/popular-foods";
 import Link from "next/link";
-import { Restaurant } from "@prisma/client";
+import { MappingFoods } from "./components/mapping-foods";
 
-interface Props {
-  restaurant: Restaurant;
-}
-
-export default async function Home({ restaurant }: Props) {
+export default async function Home() {
   const restaurants = await db.restaurant.findMany({});
 
-  const services = await db.restaurantService.findMany({
-    take: 12,
-    distinct: ["name", "imageUrl"],
-  });
   return (
     <div>
       <Header />
@@ -68,15 +59,9 @@ export default async function Home({ restaurant }: Props) {
           Ver todos
         </Button>
       </div>
-      <div className="flex flex-col gap-4 p-2 pb-5 md:flex-row md:overflow-x-auto md:[&::-webkit-scrollbar]:hidden">
-        {services.map((services) => (
-          <PopularFoods
-            key={services.id}
-            service={services}
-            restaurant={restaurant}
-          />
-        ))}
-      </div>
+      {restaurants.length > 0 && (
+        <MappingFoods restaurant={restaurants[0]} key={restaurants[0].id} />
+      )}
     </div>
   );
 }

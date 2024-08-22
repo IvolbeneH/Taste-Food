@@ -12,9 +12,18 @@ export function Favorited({ restaurant }: FavoritedProps) {
   const [isFavorited, setIsFavorited] = useState<boolean>(() => {
     const savedFavorite = localStorage.getItem(`isFavorited-${restaurant.id}`);
 
-    return savedFavorite
-      ? JSON.parse(savedFavorite)
-      : localStorage.removeItem(`isFavorited-${restaurant.id}`);
+    if (!savedFavorite) {
+      localStorage.removeItem(`isFavorited-${restaurant.id}`);
+      return false;
+    }
+
+    try {
+      return JSON.parse(savedFavorite);
+    } catch (error) {
+      console.error("Erro ao fazer parse do JSON:", error);
+      localStorage.removeItem(`isFavorited-${restaurant.id}`);
+      return false;
+    }
   });
 
   useEffect(() => {
@@ -25,12 +34,13 @@ export function Favorited({ restaurant }: FavoritedProps) {
   }, [isFavorited, restaurant.id]);
 
   const handleClick = () => {
-    setIsFavorited(!isFavorited);
+    const newFavoritedStatus = !isFavorited;
+    setIsFavorited(newFavoritedStatus);
 
-    if (isFavorited === false) {
+    if (newFavoritedStatus) {
       toast.success("Restaurante colocado nos favoritos!");
     } else {
-      return toast.error("Restaurante removido dos favoritos!");
+      toast.error("Restaurante removido dos favoritos!");
     }
   };
   return (
