@@ -16,7 +16,7 @@ export function RestaurantItem({ restaurant }: RestaurantItemProps) {
     <div className="mt-2 flex w-full gap-2">
       <Card className="max-w-[165px] rounded-2xl md:min-w-96">
         <CardContent className="p-0 px-2 pb-2 pt-2">
-          <div className="relative h-[159px] w-full md:h-64">
+          <div className="relative h-[159px] w-full md:h-56">
             <Image
               fill
               className="rounded-2xl object-cover"
