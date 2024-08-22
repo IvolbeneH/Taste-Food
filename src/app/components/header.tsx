@@ -61,7 +61,7 @@ export function Header() {
         <SearchInput />
       </div>
       <div className="hidden gap-3 md:flex">
-        <ThemeButton />
+        {/* <ThemeButton /> */}
         <CartSheet />
         {data?.user ? (
           <DropdownMenu>
