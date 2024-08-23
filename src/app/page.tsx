@@ -1,15 +1,15 @@
 import Image from "next/image";
 import { Header } from "./components/header";
 import { RestaurantItem } from "./components/restaurant-item";
-import { db } from "./lib/prisma";
 import { quickSearchOption } from "./_constants/option";
 import { Button } from "./components/ui/button";
 import { Welcome } from "./components/welcome";
 import Link from "next/link";
 import { MappingFoods } from "./components/mapping-foods";
+import { restaurant } from "./_actions/actions";
 
 export default async function Home() {
-  const restaurants = await db.restaurant.findMany({});
+  const restaurants = await restaurant();
 
   return (
     <div>

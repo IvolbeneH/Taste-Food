@@ -1,5 +1,4 @@
 import { Restaurant } from "@prisma/client";
-import { Avatar, AvatarImage } from "./ui/avatar";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
 import { Badge } from "./ui/badge";

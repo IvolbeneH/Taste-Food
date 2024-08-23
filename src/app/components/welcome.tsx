@@ -23,7 +23,10 @@ export function Welcome() {
             </Avatar>
             <div className="flex flex-col">
               <p className="text-base font-normal">
-                Olá, <span className="font-semibold">{data?.user?.name}!</span>
+                Olá,{" "}
+                <span className="font-semibold capitalize">
+                  {data?.user?.name}!
+                </span>
               </p>
               <Greeting />
             </div>

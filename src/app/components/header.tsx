@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  AlignRight,
-  LogOut,
-  Settings,
-  ShoppingCart,
-  Truck,
-  User,
-} from "lucide-react";
+import { AlignRight, LogOut, Settings, Truck } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetTrigger } from "./ui/sheet";
 import Link from "next/link";
@@ -33,7 +26,6 @@ import {
 } from "./ui/dialog";
 import Image from "next/image";
 import { SearchInput } from "./search-input";
-import { SearchType } from "./search-type";
 import { CartSheet } from "./cart-sheet";
 
 export function Header() {
